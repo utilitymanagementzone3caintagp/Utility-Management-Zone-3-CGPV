@@ -1,0 +1,94 @@
+.modal {
+  display: block;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050; /* Ensure modal is above other elements */
+   background: none;
+    border-radius: 5px;
+    max-width: 600px; /* Adjust width as needed */
+    padding: 20px;
+  }
+  
+  .modal-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; /* Header border */
+  }
+  
+  .modal-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 20px 0;
+  }
+  
+  .modal-footer {
+    padding-top: 10px;
+    border-top: 1px solid #ccc; /* Footer border */
+  }
+  
+  /* Modal Backdrop Styles */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    z-index: 1040; /* Ensure backdrop is behind the modal */
+  }
+
+  .lastnametitle {
+    margin-top: 20px;
+  }
+  .emailtitle {
+    margin-top: 20px;
+  }
+  .phonetitle {
+    margin-top: 20px;
+   
+  }
+  .stalltitle {
+    margin-top: 20px;
+  }
+
+  #iconaction {
+    cursor: pointer;
+  }
+
+  .btneditsavechanges {
+    margin-top: 20px;
+  }
+
+  .avatarprofilelist {
+    height: 10px;
+  }
+
+  .pagebtnslice {
+    margin-top: 5px;
+    border-style: none;
+    text-align: center;
+  }
+
+  .btnnextpage {
+    border-style: none;
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: underline;
+  }
+  .btnprevious {
+    border-style: none;
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: underline;
+  }
+
+  .totalpagescount {
+    margin: 15px;
+  }

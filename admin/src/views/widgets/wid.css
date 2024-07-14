@@ -1,0 +1,65 @@
+/* Container for the pie chart */
+.pie-chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 280px; 
+  
+    margin-top: 35px;
+  }
+
+  .pie-chart-canvas {
+    width: 100%;
+    height: auto;
+  }
+  
+  .chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; 
+  }
+  
+  .legend-item span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  /* Define colors for legend items */
+  .legend-item.water-bill span {
+    background-color: #36A2EB;
+  }
+  
+  .legend-item.electric-bill span {
+    background-color: #FFCE56; 
+  }
+  
+  .legend-item.current-balance span {
+    background-color: #FF6384; 
+  }
+  
+
+  .editmeetingbtn {
+    margin-left: 90%;
+    cursor: pointer;
+  }
+  .timeform {
+    margin-top: 20px;
+  }
+  .updatebtnmeeting {
+    margin-top: 20px;
+  }
+
+  .modalannouncement {
+   align-items: center;
+   justify-content: center;
+   margin-top: 10%;
+  }

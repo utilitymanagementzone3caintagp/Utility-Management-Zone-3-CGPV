@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body .regBody4 {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f4f4;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login3 {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: none;
+    border-radius: 9px;
+    background-size: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+  
+  .aContainer {
+    background-color: #fff;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    height: fit-content;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  
+  .sp5 {
+    color: #443355;
+    width: 250px;
+    font-size: 50pxpx;
+    padding-top: 50px;
+    margin-left: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+ 
+
+  .Button12 {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0071c2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 42px;
+  }
+  .lButton12:active {
+    background-color: #0071c28c;
+    list-style: none;
+    transform: translateY(4px);
+  }
+  
+  .Button12:disabled{
+    background-color: #0071c28c;
+    cursor: not-allowed;
+  }
+  .message{
+    color: white;
+    font-weight: bold;
+  }
+
+.lInput3 {
+  height: 45px;
+    padding: 10px;
+  }
+
+  .profileImage {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%;
+    
+  }
+
+  .profileuserview {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }

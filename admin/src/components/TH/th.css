@@ -1,0 +1,341 @@
+.emailtypebill {
+  font-size: 12px;
+}
+.stallmonthly {
+  font-size: 12px;
+  color: #008000;
+}
+.emailmonthly {
+  font-size: 20px;
+}
+
+.billtypelab {
+  margin-top: 15px;
+}
+
+.highlighter-rouge {
+    font-size: 20px;
+    color: #EE4B2B;
+}
+.text-success {
+    font-size: 20px;
+}
+
+#printre {
+  font-size: 12px;
+  text-align: center;
+}
+
+#gcashnumberrr {
+  font-size: 13px;
+}
+
+.readme {
+  border-style: none;
+  text-align: center;
+  background-color: transparent;
+  margin-left: 25%;
+  text-decoration: underline;
+}
+
+#settingstat {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #003300;
+}
+
+.status-paid {
+  color: green;
+}
+.status-cancelled {
+  color: red;
+}
+
+.status-processed { color: orange; }
+
+
+#addtransac {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.labeladdtransac {
+  margin-left: 15%;
+  background-color: #0275d8;
+  color: #fff;
+  height: 27px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  width: 170px;
+}
+.labeladdtransac:hover {
+  background-color: #50BAFF;
+}
+
+.datesize {
+    font-size: 17px;
+    color: #003300;
+}
+
+.table td {
+    border-bottom: 2px solid black; 
+  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .table th, .table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .printbtn {
+    margin-left: 5px;
+    border-style: none;
+    background-color: #0275d8;
+    color: #fff;
+    width: 50px;
+    border-radius: 5px;
+  }
+  .me-2 {
+    display: inline-block;
+  }
+  .printbtn:hover {
+    background-color: #50BAFF;
+  }
+  .printbtn:active {
+    background-color: #50BAFF;
+  }
+
+
+  @media (max-width: 480px) {
+    .table {
+      font-size: 12px; 
+    }
+    .fromto23 {
+      font-size: 10px; 
+    }
+    .highlighter-rouge {
+      font-size: 19px;
+    }
+    .emailtypebill {
+      font-size: 5px;
+    }
+    .stallmonthly {
+      font-size: 5px;
+    }
+    .emailmonthly {
+      font-size: 10px;
+    }
+    #text-succ {
+      font-size: 15px;
+    }
+    
+  }
+
+  @media (max-width: 767px) {
+    .table {
+      font-size: 14px;
+    }
+    .emailtypebill {
+      font-size: 5px;
+    }
+    .stallmonthly {
+      font-size: 5px;
+    }
+    .emailmonthly {
+      font-size: 10px;
+    }
+    .fromto23 {
+      font-size: 10px;
+    }
+    .highlighter-rouge {
+      font-size: 17px;
+    }
+
+    #text-succ {
+      font-size: 17px;
+    } 
+    
+  }
+
+
+  @page {
+    margin: 0; 
+    size: A4; 
+  }
+  
+  /* Watermark styles for printing only */
+@media print {
+  body::after {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('./watermark.png'); 
+    background-repeat: repeat; 
+    opacity: 0.2; 
+    pointer-events: none; 
+    z-index: -1; 
+  }
+  table {
+    margin: 0 auto; 
+    margin-top: 35%;
+  }
+}
+
+
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1000;
+}
+
+.modal-content {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+#closetimeicon {
+  font-size: 25px;
+  background-color: transparent;
+}
+
+/* Additional styles for the message */
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+
+#billsmountype{
+  font-size: 20px;
+  color: green;
+}
+#typebillclass{
+  font-size: 20px;
+  color: black;
+}
+#fromto23 {
+  font-size: 20px;
+}
+#gcashnumber {
+font-size: 17px;
+color: #0275d8;
+}
+
+.datesize {
+  font-size: 17px;
+}
+
+.optionsvalue {
+margin: 10px;
+}
+
+.table td {
+  border-bottom: 2px solid black; 
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.btngcash {
+  margin-top: 15px;
+  color: #fff;
+  background-color: #0275d8;
+  border-style: none;
+}
+.btngcash:hover {
+  background-color: #0275d8;
+}
+
+.gcashlogo {
+  margin-left: 5px;
+  max-width: 50px;
+  border-radius: 10px;
+}
+
+.formmarginstyle {
+  margin-top: 20px;
+}
+.form-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#titlebill {
+  background-color: #FFE5CC;
+  color: black;
+}
+#tbodyonlinepay {
+background-color: #E8E0E0;
+}
+
+
+
+@media (max-width: 480px) {
+.fromto23  {
+    font-size: 10px;
+  }
+.datesize {
+  font-size: 13px;
+}
+#billsmountype {
+  font-size: 10px;
+}
+}
+
+@media (max-width: 767px) {
+.datesize {
+  font-size: 16px;
+}
+#billsmountype {
+  font-size: 10px;
+}
+#typebillclass {
+  font-size: 13px;
+}
+#titlebill {
+  font-size: 11px;
+}
+.typebillclass {
+  font-size: 13px;
+}
+#fromto23 {
+  font-size: 10px;
+}
+.yeartpye {
+  font-size: 13px;
+}
+
+}

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Anek+Odia:wght@100;300&family=Beau+Rivage&family=Bebas+Neue&family=Charis+SIL&family=Exo:wght@200;300;400;700;800&family=Lobster&family=Maven+Pro&family=Montserrat:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;0,900;1,200&family=Noto+Serif:wght@700&family=Open+Sans:wght@300&family=Poppins:wght@200&family=Raleway&family=Rubik:ital,wght@1,300&family=Shadows+Into+Light&family=Source+Serif+Pro:ital@1&family=Water+Brush&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+    height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;  
+}
+  
+.lContainer {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-image: url("admin.jpg");
+    background-repeat: no-repeat;
+    background-size: 70px;
+    background-position: top;
+    background-position-y: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 5px;
+    padding: 50px;
+    text-align: center;
+    background-color: whitesmoke;
+    margin-top: 20px;
+    height: 350px;
+}
+  
+.lInput{
+  margin-top: 23px;
+  height: 45px;
+  padding: 10px;
+  width: 300px;
+  font-size: 17px;
+}
+  
+.lButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0071c2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+    height: 50px;
+}
+  
+.lButton:disabled{
+    background-color: #0071c28c;
+    cursor: not-allowed;
+}
+
+.colorspan
+ {
+   color:#ff3333;
+   font-size: 17px;
+   height: 0;
+   padding: 0;
+   margin: 0;
+ }
+
+ .logodiv {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .titleLog {
+    font-size: 23px;
+    color: #1877f2;
+    font-family: "Bebas Neue";
+    text-align: center;
+    margin-top: 0; 
+  }
+
+  .countdown-timer {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  .countdown-timer:before {
+    content: "The OTP will expire after 15 minutes: ";
+  }
+  
+  .countdown-timer span {
+    font-size: 24px;
+    font-weight: normal;
+    color: #ff5733; 
+  }
+
+  .password-icon {
+    position: absolute;
+    margin-top: 5px;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-right: 63px;
+  }
+
+  @media (max-width: 480px) {
+    .password-icon {
+      margin-right: 40px;
+    }
+    .lInput {
+      width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+  .password-icon {
+    margin-right: 40px;
+  }
+  .lInput {
+    width: 100%;
+  }
+}

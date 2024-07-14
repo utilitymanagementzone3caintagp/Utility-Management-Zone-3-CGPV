@@ -1,0 +1,84 @@
+
+.fromto23 {
+  font-size: 20px;
+  color: indianred;
+}
+.typebillclass {
+font-size: 20px;
+color: #000000;
+}
+.yrr {
+font-size: 18px;
+color: #000000;
+}
+
+.text-success {
+  font-size: 20px;
+}
+
+
+.datesize {
+  font-size: 17px;
+}
+
+.table td {
+  border-bottom: 2px solid black; 
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.pagebtnslice {
+  border-style: none;
+  text-align: center;
+}
+
+.totalpagescount {
+  margin: 15px;
+}
+.btnnextpage {
+  border-style: none;
+  background-color: transparent;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-decoration: underline;
+}
+.btnprevious {
+  border-style: none;
+  background-color: transparent;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-decoration: underline;
+}
+
+.search-bar {
+margin-bottom: 10px;
+}
+.inputsearchbar {
+height: 30px;
+} 
+
+
+
+@media (max-width: 480px) {
+  .typebillclass {
+    font-size: 13px;
+  }
+  .fromto23 {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .typebillclass {
+    font-size: 13px;
+  }
+  .fromto23 {
+    font-size: 13px;
+  }
+}

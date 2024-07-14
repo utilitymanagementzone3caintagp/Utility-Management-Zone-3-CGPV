@@ -1,0 +1,173 @@
+.highlighter-rouge {
+    font-size: 20px;
+    color: #EE4B2B;
+}
+.text-success {
+    font-size: 20px;
+}
+
+#printre {
+  font-size: 12px;
+  text-align: center;
+}
+
+.readme {
+  border-style: none;
+  text-align: center;
+  background-color: transparent;
+  margin-left: 25%;
+  text-decoration: underline;
+}
+
+.status-processed { 
+  color: orange; 
+}
+.status-paid {
+  color: green;
+}
+.status-cancelled {
+  color: red;
+}
+
+
+
+.datesize {
+    font-size: 17px;
+    color: #003300;
+}
+
+.table td {
+    border-bottom: 2px solid black; 
+  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .table th, .table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .printbtn {
+    margin-left: 5px;
+    border-style: none;
+    background-color: #0275d8;
+    color: #fff;
+    width: 50px;
+    border-radius: 5px;
+  }
+  .printbtn:hover {
+    background-color: #50BAFF;
+  }
+  .printbtn:active {
+    background-color: #50BAFF;
+  }
+
+  #titlebill2 {
+    background-color: #FFE5CC;
+    color: black;
+  }
+  
+
+
+  @media (max-width: 480px) {
+    .table {
+      font-size: 12px; 
+    }
+    .fromto23 {
+      font-size: 12px; 
+    }
+    .highlighter-rouge {
+      font-size: 19px;
+    }
+    
+    #text-succ {
+      font-size: 15px;
+    }
+    
+  }
+
+  @media (max-width: 767px) {
+    .table {
+      font-size: 14px;
+    }
+    .fromto23 {
+      font-size: 14px;
+    }
+    .highlighter-rouge {
+      font-size: 17px;
+    }
+
+    #text-succ {
+      font-size: 17px;
+    } 
+    
+  }
+
+
+  @page {
+    margin: 0; 
+    size: A4; 
+  }
+  
+  /* Watermark styles for printing only */
+@media print {
+  body::after {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('./watermark.png'); 
+    background-repeat: repeat; 
+    opacity: 0.2; 
+    pointer-events: none; 
+    z-index: -1; 
+  }
+  table {
+    margin: 0 auto; 
+    margin-top: 35%;
+  }
+}
+
+
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1000;
+}
+
+.modal-content {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+#closetimeicon {
+  font-size: 25px;
+  background-color: transparent;
+}
+
+/* Additional styles for the message */
+.modal-content p {
+  margin-bottom: 10px;
+}

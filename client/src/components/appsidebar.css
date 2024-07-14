@@ -1,0 +1,32 @@
+#logoname {
+    font-size: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#definenotifi {
+    font-size: 15px;
+}
+#timedatenotifi {
+    font-size: 11px;
+}
+
+@media (max-width: 480px) {
+    #definenotifi {
+        font-size: 11px;
+    }
+    #timedatenotifi {
+        font-size: 9px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    #definenotifi {
+        font-size: 11px;
+    }
+    #timedatenotifi {
+        font-size: 9px;
+    }
+  
+  }

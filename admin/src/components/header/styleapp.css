@@ -1,0 +1,11 @@
+.logout-item {
+    cursor: pointer;
+  } 
+  
+  .nav-link:hover {
+    color: lawngreen;
+  }
+
+  .appheaderdropdown {
+    cursor: pointer;
+  }
