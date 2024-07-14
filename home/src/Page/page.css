@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Anek+Odia:wght@100;300&family=Beau+Rivage&family=Bebas+Neue&family=Charis+SIL&family=Exo:wght@200;300;400;700;800&family=Lobster&family=Maven+Pro&family=Montserrat:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;0,900;1,200&family=Noto+Serif:wght@700&family=Open+Sans:wght@300&family=Poppins:wght@200&family=Raleway&family=Rubik:ital,wght@1,300&family=Shadows+Into+Light&family=Source+Serif+Pro:ital@1&family=Water+Brush&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.bodyformlink {
+    margin-top: 50px;
+}
+.copyrightdiv {
+    background-color: #454545;
+}
+
+#creditcopy {
+    color: #fff;
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  }
+
+  .titlelog {
+    font-size: 27px;
+    color: #1877f2;
+    font-family: "Bebas Neue";
+    text-align: center;
+    margin-top: 0; 
+  }
+
+  #adminbtn {
+    border-style: none;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+  }
+  #stalltbtn {
+    border-style: none;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #0275d8;
+    color: #fff;
+    width: 80%;
+  }
+  #stalltitle {
+    color: #fff;
+    text-align: center;
+    margin: 5px;
+  }
+  #definestallt {
+    color: #fff;
+    text-align: center;
+    margin: 5px;
+  }
+
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+      }
+  }
+  @media (min-width: 480px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+      }
+
+  }
+  
