@@ -40,6 +40,7 @@ const TH = () => {
     gcashnumber: "",
     stallnametra: "",
     dateoftransaction: "",
+    statusoftransaction: "PENDING",
   });
   const [define, setDefine] = useState("");
 
@@ -253,7 +254,6 @@ const TH = () => {
                   }}
                 />
               </div>
-
               <div className="selectionpaid">
                 <Form.Select
                   className="inputselectionpaid"
@@ -266,7 +266,6 @@ const TH = () => {
                   <option value="CANCELLED">CANCELLED</option>
                 </Form.Select>
               </div>
-
               <div className="tablebillamount">
                 {currentItems.length > 0 ? (
                   <>
