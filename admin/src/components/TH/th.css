@@ -189,7 +189,18 @@
   }
 }
 
-
+.sort-icon {
+  font-size: 18px;
+  font-weight: 100px; 
+  cursor: pointer;
+}
+.selectionpaid {
+  margin-bottom: 10px;
+  width: 200px;
+}
+.inputselectionpaid {
+  cursor: pointer;
+}
 
 .modal {
   display: flex;
@@ -313,6 +324,7 @@ background-color: #E8E0E0;
 #billsmountype {
   font-size: 10px;
 }
+
 }
 
 @media (max-width: 767px) {
