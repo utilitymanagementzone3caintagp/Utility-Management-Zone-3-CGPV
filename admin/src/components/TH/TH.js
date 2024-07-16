@@ -12,13 +12,15 @@ import CIcon from "@coreui/icons-react";
 
 import { NoEncryption } from "@mui/icons-material";
 import { toast } from "react-toastify";
-import { format } from "date-fns";
+import { format, parse } from "date-fns";
 
 const TH = () => {
   const { user } = useContext(AuthContext);
   const [transactions, setTransactions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchInput, setSearchInput] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [selectedStatus, setSelectedStatus] = useState("");
   const itemsPerPage = 5;
   const componentRef = useRef();
 
@@ -81,9 +83,7 @@ const TH = () => {
 
   const filteredItems = transactions.filter(
     (transaction) =>
-      transaction.email
-        .toLowerCase()
-        .includes(searchInput.toLowerCase()) ||
+      transaction.email.toLowerCase().includes(searchInput.toLowerCase()) ||
       transaction.paymentmethodtransaction
         .toLowerCase()
         .includes(searchInput.toLowerCase()) ||
@@ -112,24 +112,40 @@ const TH = () => {
   const totalItems = searchInput ? filteredItems.length : transactions.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
+  const handleSortByDate = () => {
+    const sortedTransactions = [...transactions].sort((a, b) => {
+      const dateA = parse(a.dateoftransaction, "MMM dd, yyyy", new Date());
+      const dateB = parse(b.dateoftransaction, "MMM dd, yyyy", new Date());
+
+      if (sortOrder === "asc") {
+        return dateA - dateB;
+      } else {
+        return dateB - dateA;
+      }
+    });
+
+    setTransactions(sortedTransactions);
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
   const handleSaveChanges = async () => {
     try {
       const transactionToUpdate = transactions.find(
         (transaction) => transaction._id === editedTransactionId
       );
-  
+
       if (!transactionToUpdate) {
         console.error("Transaction not found for ID:", editedTransactionId);
         return;
       }
-  
+
       let notificationMessage = "";
       if (editedTransactionStatus === "PAID") {
         notificationMessage = `Your payment of ₱${transactionToUpdate.amountoftransaction} for ${transactionToUpdate.billtypetransaction} was successful.`;
       } else if (editedTransactionStatus === "CANCELLED") {
         notificationMessage = `Your payment of ₱${transactionToUpdate.amountoftransaction} for ${transactionToUpdate.billtypetransaction} has been cancelled.`;
       }
-  
+
       const notificationResponse = await axios.post(
         `${apiUrl}/usernotifications`,
         {
@@ -138,16 +154,16 @@ const TH = () => {
           usertimedatenotifi: formatDate(new Date()),
         }
       );
-  
+
       const newNotification = notificationResponse.data.usernotification;
-  
+
       const transactionResponse = await axios.put(
         `${apiUrl}/transactions/${editedTransactionId}`,
         {
           statusoftransaction: editedTransactionStatus,
         }
       );
-  
+
       const updatedTransactions = transactions.map((transaction) =>
         transaction._id === editedTransactionId
           ? {
@@ -157,7 +173,7 @@ const TH = () => {
             }
           : transaction
       );
-  
+
       setTransactions(updatedTransactions);
       handleCloseEditModal();
       toast.success("Transaction status updated successfully");
@@ -167,7 +183,7 @@ const TH = () => {
         error
       );
     }
-  };  
+  };
 
   const handleAddTransaction = async () => {
     try {
@@ -238,106 +254,132 @@ const TH = () => {
                 />
               </div>
 
+              <div className="selectionpaid">
+                <Form.Select
+                  className="inputselectionpaid"
+                  value={selectedStatus}
+                  onChange={(e) => setSelectedStatus(e.target.value)}
+                >
+                  <option value="">All</option>
+                  <option value="PENDING">PENDING</option>
+                  <option value="PAID">PAID</option>
+                  <option value="CANCELLED">CANCELLED</option>
+                </Form.Select>
+              </div>
+
               <div className="tablebillamount">
                 {currentItems.length > 0 ? (
                   <>
                     <table ref={componentRef} className="table">
                       <thead>
                         <tr>
-                        <th id="titlebill">EMAIL</th>
+                          <th id="titlebill">EMAIL</th>
                           <th id="titlebill">PAYMENT METHOD</th>
                           <th id="titlebill">BILL</th>
                           <th id="titlebill">AMOUNT</th>
-                          <th id="titlebill">DATE</th>
+                          <th id="titlebill" onClick={handleSortByDate}>
+                            DATE
+                            {sortOrder === "asc" ? (
+                              <span className="sort-icon"> ▲</span>
+                            ) : (
+                              <span className="sort-icon"> ▼</span>
+                            )}
+                          </th>
                           <th id="titlebill">STATUS</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {currentItems.map((transaction, index) => (
-                          <tr key={index}>
-                            <td id="tbodyonlinepay">
-                              <p id="billsmountype">
-                                {transaction.email}
-                              </p>
-                            </td>
-                            <td id="tbodyonlinepay">
-                              <p id="typebillclass">
-                                {transaction.paymentmethodtransaction}
-                                {transaction.gcashnumber && (
-                                  <p id="gcashnumberrr">
-                                    {transaction.gcashnumber}
-                                  </p>
-                                )}
-                                {transaction.stallnametra && (
-                                  <p id="gcashnumberrr">
-                                    {transaction.stallnametra}
-                                  </p>
-                                )}
-                              </p>
-                            </td>
-
-                            <td id="tbodyonlinepay">
-                              <p id="billsmountype">
-                                {transaction.billtypetransaction}
-                              </p>
-                            </td>
-                            <td id="tbodyonlinepay">
-                              <p>
-                                <code id="fromto23">
-                                  ₱{transaction.amountoftransaction}
-                                </code>
-                              </p>
-                            </td>
-                            <td id="tbodyonlinepay">
-                              <p>
-                                <code id="typebillclass">
-                                  {transaction.dateoftransaction}
-                                </code>
-                              </p>
-                            </td>
-                            <td id="tbodyonlinepay">
-                              <code id="typebillclass">
-                                <p
-                                  className={
-                                    transaction.statusoftransaction ===
-                                    "PENDING"
-                                      ? "status-processed"
-                                      : transaction.statusoftransaction ===
-                                          "PAID"
-                                        ? "status-paid"
-                                        : transaction.statusoftransaction ===
-                                            "CANCELLED"
-                                          ? "status-cancelled"
-                                          : "status-processed"
-                                  }
-                                >
-                                  {transaction.statusoftransaction
-                                    ? transaction.statusoftransaction
-                                    : "PENDING"}
-                                  {transaction.statusoftransaction !== "PAID" &&
-                                    transaction.statusoftransaction !==
-                                      "CANCELLED" && (
-                                      <CIcon
-                                        id="settingstat"
-                                        icon={cilSettings}
-                                        className="nav-icon custom-icon-size"
-                                        onClick={() => {
-                                          setEditedTransactionId(
-                                            transaction._id
-                                          );
-                                          setEditedTransactionStatus(
-                                            transaction.statusoftransaction ||
-                                              ""
-                                          );
-                                          handleEditTransactionStatus();
-                                        }}
-                                      />
-                                    )}
+                        {currentItems
+                          .filter((transaction) =>
+                            selectedStatus
+                              ? transaction.statusoftransaction ===
+                                selectedStatus
+                              : true
+                          )
+                          .map((transaction, index) => (
+                            <tr key={index}>
+                              <td id="tbodyonlinepay">
+                                <p id="billsmountype">{transaction.email}</p>
+                              </td>
+                              <td id="tbodyonlinepay">
+                                <p id="typebillclass">
+                                  {transaction.paymentmethodtransaction}
+                                  {transaction.gcashnumber && (
+                                    <p id="gcashnumberrr">
+                                      {transaction.gcashnumber}
+                                    </p>
+                                  )}
+                                  {transaction.stallnametra && (
+                                    <p id="gcashnumberrr">
+                                      {transaction.stallnametra}
+                                    </p>
+                                  )}
                                 </p>
-                              </code>
-                            </td>
-                          </tr>
-                        ))}
+                              </td>
+
+                              <td id="tbodyonlinepay">
+                                <p id="billsmountype">
+                                  {transaction.billtypetransaction}
+                                </p>
+                              </td>
+                              <td id="tbodyonlinepay">
+                                <p>
+                                  <code id="fromto23">
+                                    ₱{transaction.amountoftransaction}
+                                  </code>
+                                </p>
+                              </td>
+                              <td id="tbodyonlinepay">
+                                <p>
+                                  <code id="typebillclass">
+                                    {transaction.dateoftransaction}
+                                  </code>
+                                </p>
+                              </td>
+                              <td id="tbodyonlinepay">
+                                <code id="typebillclass">
+                                  <p
+                                    className={
+                                      transaction.statusoftransaction ===
+                                      "PENDING"
+                                        ? "status-processed"
+                                        : transaction.statusoftransaction ===
+                                            "PAID"
+                                          ? "status-paid"
+                                          : transaction.statusoftransaction ===
+                                              "CANCELLED"
+                                            ? "status-cancelled"
+                                            : "status-processed"
+                                    }
+                                  >
+                                    {transaction.statusoftransaction
+                                      ? transaction.statusoftransaction
+                                      : "PENDING"}
+                                    {transaction.statusoftransaction !==
+                                      "PAID" &&
+                                      transaction.statusoftransaction !==
+                                        "CANCELLED" && (
+                                        <CIcon
+                                          id="settingstat"
+                                          icon={cilSettings}
+                                          className="nav-icon custom-icon-size"
+                                          onClick={() => {
+                                            setEditedTransactionId(
+                                              transaction._id
+                                            );
+                                            setEditedTransactionStatus(
+                                              transaction.statusoftransaction ||
+                                                ""
+                                            );
+                                            handleEditTransactionStatus();
+                                          }}
+                                        />
+                                      )}
+                                  </p>
+                                </code>
+                              </td>
+                            </tr>
+                          ))}
                       </tbody>
                     </table>
                     <div className="pagebtnslice">
@@ -390,9 +432,7 @@ const TH = () => {
                     </Form.Select>
                   </Form.Group>
 
-                <Form.Group 
-                  style={{ display: "none" }} 
-                  controlId="formEmail">
+                  <Form.Group style={{ display: "none" }} controlId="formEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                       type="email"
@@ -407,9 +447,7 @@ const TH = () => {
                     />
                   </Form.Group>
 
-                <Form.Group 
-                  style={{ display: "none" }} 
-                  controlId="formEmail">
+                  <Form.Group style={{ display: "none" }} controlId="formEmail">
                     <Form.Label>Amount</Form.Label>
                     <Form.Control
                       type="amount"
